@@ -20,6 +20,15 @@ git push -u origin main
 ```
 
 
+## nodemon Windows Fix
+
+```
+1. Powershell
+2. Run as Administrator
+3. Run Set-ExecutionPolicy Unrestricted
+4. nodemon -v
+```
+
 ## Commands
 
 > node -v
@@ -27,3 +36,17 @@ git push -u origin main
 > node
 
 > node index.js
+
+> npm -v
+
+> npm init
+
+> npm install
+
+> npm update
+
+> nodemon -v
+
+> npm nodemon -v
+
+> nodemon app.js
