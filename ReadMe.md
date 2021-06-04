@@ -29,6 +29,7 @@ git push -u origin main
 4. nodemon -v
 ```
 
+
 ## Commands
 
 > node -v
@@ -50,3 +51,33 @@ git push -u origin main
 > npm nodemon -v
 
 > nodemon app.js
+
+> node inspect app.js
+
+> node --inspect-brk app.js (Windows)
+
+
+## debugger
+
+> node inspect app.js
+
+> node --inspect-brk app.js (Windows)
+
+```
+Goto: 
+
+chrome://inspect
+
+Remote Target: 
+
+Click: inspect
+
+debugger> restart
+```
+
+# gitignore
+
+```
+node_modules
+
+```
