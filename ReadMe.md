@@ -56,6 +56,10 @@ git push -u origin main
 
 > node --inspect-brk app.js (Windows)
 
+> num run dev
+
+> npm run start
+
 
 ## debugger
 
@@ -75,9 +79,36 @@ Click: inspect
 debugger> restart
 ```
 
-# gitignore
+
+## gitignore
 
 ```
 node_modules
+.DS_Store
+.git
+```
+
+
+## Heroku Deployment
+
+
+
+
+## Errors
 
 ```
+npm i nodemon -g  
+
+checkPermissions Missing write access to /usr/local/lib/node_modules
+
+sudo chown -R $USER /usr/local/lib/node_modules
+
+```
+
+
+## MongoDB
+
+```
+> /Users/ali/Applications/mongodb/bin/mongod --dbpath=/Users/ali/data
+```
+
