@@ -36,12 +36,18 @@ db.getCollection('users').find({})
 
 > npm i express --save
 
+> npm i bcryptjs --save
+
+> npm i jsonwebtoken --save
+
 
 ## API Endpoints
 
 > POST: /users
 
 ```
+Body: raw: json
+
 {
     "name": "Ali Imran",
     "email": "info@itsali.com",
@@ -53,20 +59,21 @@ db.getCollection('users').find({})
 > GET: /users
 
 ```
-{
-    
-}
+
 ```
 
 > GET: /users/:id
 
 ```
-id=""
+
 ```
+
 
 > PATCH: /users/:id
 
 ```
+Body: raw: json
+
 {
     "name": "Ali Imran",
     "email": "info@itsali.com",
@@ -75,32 +82,54 @@ id=""
 }
 ```
 
+
+> DELETE: /users/:id
+
+```
+
+```
+
+
+> GET: /users/me
+
+```
+Auth: Bearer Token
+
+<jwt token>
+```
+
+
 > POST: /tasks
 
 ```
+Body: raw: json
+
 {
     "description": "Development Task",
     "completed": false
 }
 ```
 
+
 > GET: /tasks
 
 ```
-{
-    
-}
+
 ```
+
 
 > GET: /tasks/:id
 
 ```
-id=""
+
 ```
+
 
 > PATCH: /tasks
 
 ```
+Body: raw: json
+
 {
     "description": "Development Task",
     "completed": true
@@ -108,5 +137,47 @@ id=""
 ```
 
 
-## Heroku Deployment
+> DELETE: /tasks/:id
 
+```
+
+```
+
+
+> POST: /users/login
+
+```
+Body: raw: json
+
+{    
+    "email": "info@itsali.com",
+    "password": "thisistest"
+}
+```
+
+
+## Postman
+
+
+### Test Script 
+
+```
+if(pm.response.code == 200) {
+    pm.environment.set("authToken", pm.response.json().token)
+}
+
+if(pm.response.code == 201) {
+    pm.environment.set("authToken", pm.response.json().token)
+}
+```
+
+
+### Env Variables
+
+```
+{{url}}
+{{authToken}}
+```
+
+
+## Heroku Deployment
