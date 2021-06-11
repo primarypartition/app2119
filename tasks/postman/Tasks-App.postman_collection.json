@@ -25,7 +25,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Ali Imran\",\n    \"email\": \"info2@itsali.com\",\n    \"password\": \"thisistest\",\n    \"age\": 30\n}",
+					"raw": "{\n    \"name\": \"Ali Imran\",\n    \"email\": \"info@itsali.com\",\n    \"password\": \"thisistest\",\n    \"age\": 30\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -87,7 +87,7 @@
 			"response": []
 		},
 		{
-			"name": "Update User",
+			"name": "Update User 1",
 			"request": {
 				"method": "PATCH",
 				"header": [],
@@ -114,7 +114,34 @@
 			"response": []
 		},
 		{
-			"name": "Delete User",
+			"name": "Update User 2",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ali Imran\",\n    \"email\": \"info@itsali.com\",\n    \"password\": \"thisistest\",\n    \"age\": 35\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -130,6 +157,28 @@
 					"path": [
 						"users",
 						"60bfff09dbac7013c20fb386"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
 					]
 				}
 			},
@@ -197,13 +246,138 @@
 			"response": []
 		},
 		{
+			"name": "Logout User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/users/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout All User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/users/logoutAll",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"logoutAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/ali/Downloads/node-course-images 2/philly.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/users/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Image By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/users/60c26facf04c7e0a9739ea55/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"60c26facf04c7e0a9739ea55",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create Task",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"description\": \"Development Task\"\n}",
+					"raw": "{\n    \"description\": \"Development Task\",\n    \"completed\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,7 +397,7 @@
 			"response": []
 		},
 		{
-			"name": "List Tasks",
+			"name": "List Tasks 1",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -234,6 +408,41 @@
 					],
 					"path": [
 						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Tasks 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tasks?completed=false&limit=10&skip=0&sortBy=createdAt:desc",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "false"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "sortBy",
+							"value": "createdAt:desc"
+						}
 					]
 				}
 			},

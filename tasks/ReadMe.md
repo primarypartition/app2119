@@ -42,6 +42,8 @@ db.getCollection('users').find({})
 
 > npm i multer --save
 
+> npm i sharp --save
+
 
 ## API Endpoints
 
@@ -167,6 +169,13 @@ key <type:file>: value
 Auth: Bearer Token
 
 <jwt token>
+```
+
+
+> GET: /users/:id/avatar
+
+```
+
 ```
 
 
