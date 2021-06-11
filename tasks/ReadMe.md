@@ -40,6 +40,8 @@ db.getCollection('users').find({})
 
 > npm i jsonwebtoken --save
 
+> npm i multer --save
+
 
 ## API Endpoints
 
@@ -56,11 +58,13 @@ Body: raw: json
 }
 ```
 
+
 > GET: /users
 
 ```
 
 ```
+
 
 > GET: /users/:id
 
@@ -83,10 +87,37 @@ Body: raw: json
 ```
 
 
+> PATCH: /users/me
+
+```
+Auth: Bearer Token
+
+<jwt token>
+
+Body: raw: json
+
+{
+    "name": "Ali Imran",
+    "email": "info@itsali.com",
+    "password": "thisistest",
+    "age":"30"
+}
+```
+
+
 > DELETE: /users/:id
 
 ```
 
+```
+
+
+> DELETE: /users/me
+
+```
+Auth: Bearer Token
+
+<jwt token>
 ```
 
 
@@ -99,9 +130,53 @@ Auth: Bearer Token
 ```
 
 
+> GET: /users/logout
+
+```
+Auth: Bearer Token
+
+<jwt token>
+```
+
+
+> GET: /users/logoutAll
+
+```
+Auth: Bearer Token
+
+<jwt token>
+```
+
+
+> POST: /users/me/avatar
+
+```
+Auth: Bearer Token
+
+<jwt token>
+
+Body: form-data
+
+key <type:file>: value
+```
+
+
+> DELETE: /users/me/avatar
+
+```
+Auth: Bearer Token
+
+<jwt token>
+```
+
+
 > POST: /tasks
 
 ```
+Auth: Bearer Token
+
+<jwt token>
+
 Body: raw: json
 
 {
@@ -114,20 +189,35 @@ Body: raw: json
 > GET: /tasks
 
 ```
+Auth: Bearer Token
 
+<jwt token>
+
+Params: 
+
+completed: <true|false>
+limit: <number>
+skip: <number>
+sortBy: <key:desc|asc>
 ```
 
 
 > GET: /tasks/:id
 
 ```
+Auth: Bearer Token
 
+<jwt token>
 ```
 
 
 > PATCH: /tasks
 
 ```
+Auth: Bearer Token
+
+<jwt token>
+
 Body: raw: json
 
 {
@@ -140,7 +230,9 @@ Body: raw: json
 > DELETE: /tasks/:id
 
 ```
+Auth: Bearer Token
 
+<jwt token>
 ```
 
 
@@ -177,6 +269,13 @@ if(pm.response.code == 201) {
 ```
 {{url}}
 {{authToken}}
+```
+
+
+## Others
+
+```
+<img src="data:image/jpg;base64,<binary>">
 ```
 
 
