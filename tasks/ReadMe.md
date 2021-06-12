@@ -44,6 +44,10 @@ db.getCollection('users').find({})
 
 > npm i sharp --save
 
+> npm i @sendgrid/mail --save
+
+> npm i env-cmd --save
+
 
 ## API Endpoints
 
@@ -288,4 +292,83 @@ if(pm.response.code == 201) {
 ```
 
 
+## Email
+
+> sendgrid.com
+
+```
+Email API
+Integration
+Web API
+```
+
+```
+npm i @sendgrid/mail --save
+```
+
+
+## .env Variables
+
+> npm i env-cmd --save
+
+> mkdir config 
+
+> cd config 
+
+> touch dev.env
+
+```
+PORT=3000
+MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
+SENDGRID_API_KEY=xxxxxx
+JWT_SECRET=xxxxxx
+```
+
+> vi package.json
+
+```
+"scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
+  },
+```
+
+
 ## Heroku Deployment
+
+
+### Install
+
+> brew tap heroku/brew && brew install heroku
+
+> heroku login
+
+> heroku create itsali-dev-nodejs
+
+
+### Git setup
+
+```
+git init
+git status
+git add .
+git commit -m "heroku deployment"
+```
+
+
+### Env Variables
+
+> heroku config:set JWT_SECRET=xxxxxx
+
+> heroku config:set SENDGRID_API_KEY=xxxxxxx
+
+> heroku config:set MONGODB_URL="xxxxxx"
+
+> heroku config
+
+
+### Server Push
+
+> git push heroku master
+
+> heroku open

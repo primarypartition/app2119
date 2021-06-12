@@ -84,6 +84,7 @@ debugger> restart
 
 ```
 node_modules
+config
 .DS_Store
 .git
 ```
@@ -92,6 +93,51 @@ node_modules
 ## Heroku Deployment
 
 
+### Install
+
+> brew tap heroku/brew && brew install heroku
+
+> heroku login
+
+> heroku create itsali-dev-nodejs
+
+
+### Git setup
+
+```
+git init
+git status
+git add .
+git commit -m "heroku deployment"
+```
+
+
+### Env Variables
+
+> heroku config:set JWT_SECRET=xxxxxx
+
+> heroku config:set SENDGRID_API_KEY=xxxxxxx
+
+> heroku config:set MONGODB_URL="xxxxxx"
+
+> heroku config
+
+
+### Server Push
+
+> git push heroku master
+
+> heroku open
+
+
+## Others
+
+
+### MongoDB 
+
+```
+> /Users/ali/Applications/mongodb/bin/mongod --dbpath=/Users/ali/data
+```
 
 
 ## Errors
@@ -102,13 +148,4 @@ npm i nodemon -g
 checkPermissions Missing write access to /usr/local/lib/node_modules
 
 sudo chown -R $USER /usr/local/lib/node_modules
-
 ```
-
-
-## MongoDB
-
-```
-> /Users/ali/Applications/mongodb/bin/mongod --dbpath=/Users/ali/data
-```
-
