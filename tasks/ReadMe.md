@@ -48,6 +48,10 @@ db.getCollection('users').find({})
 
 > npm i env-cmd --save
 
+> npm i jest --save-dev
+
+> npm i supertest --save-dev
+
 
 ## API Endpoints
 
@@ -330,7 +334,7 @@ JWT_SECRET=xxxxxx
 "scripts": {
     "start": "node src/index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
-  },
+},
 ```
 
 
@@ -372,3 +376,68 @@ git commit -m "heroku deployment"
 > git push heroku master
 
 > heroku open
+
+
+## Testing
+
+> npm i jest --save-dev
+
+> https://jestjs.io/
+
+```
+"scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "jest --watch"
+},
+```
+
+> npm test
+
+
+### Test env
+
+> npm i env-cmd --save
+
+> mkdir config 
+
+> cd config 
+
+> touch test.env
+
+```
+PORT=3000
+MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
+SENDGRID_API_KEY=xxxxxx
+JWT_SECRET=xxxxxx
+```
+
+> vi package.json
+
+```
+"scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "env-cmd -f ./config/test.env jest --watch --runInBand"
+},
+"jest": {
+    "testEnvironment": "node"
+},
+```
+
+
+### Express Test Env
+
+> npm i supertest --save-dev
+
+> vi ./src/index.js
+
+```
+const app = require('./app')
+const port = process.env.PORT
+
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
+})
+```
+

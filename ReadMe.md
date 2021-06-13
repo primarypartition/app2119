@@ -60,6 +60,8 @@ git push -u origin main
 
 > npm run start
 
+> npm test
+
 
 ## debugger
 
@@ -149,3 +151,4 @@ checkPermissions Missing write access to /usr/local/lib/node_modules
 
 sudo chown -R $USER /usr/local/lib/node_modules
 ```
+
